@@ -1,5 +1,4 @@
-
-
+import ToysCategory from "../ToysCategory/ToysCategory";
 import CarouselBanner from "./CarouselBanner";
 import GallerySec from "./GallerySec";
 
@@ -11,6 +10,9 @@ const Home = () => {
 
             {/* Gallery Section */}
             <GallerySec></GallerySec>
+
+            {/* Shop by Category Section */}
+            <ToysCategory></ToysCategory>
         </div>
     );
 };

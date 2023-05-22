@@ -1,9 +1,10 @@
 import { FaRegStar, FaStar } from "react-icons/fa";
 import Rating from "react-rating";
+import { Link } from "react-router-dom";
 
 const ToyCard = ({ toy }) => {
-    console.log(toy);
-    const { toy_picture, toy_name, price, rating } = toy;
+    // console.log(toy);
+    const { _id, toy_picture, toy_name, price, rating } = toy;
     return (
         <div className="card w-96 mx-auto bg-base-100 shadow-xl my-10">
             <figure><img className="w-80" src={toy_picture} alt="Shoes" /></figure>
@@ -18,7 +19,9 @@ const ToyCard = ({ toy }) => {
                     fullSymbol={<FaStar></FaStar>}
                 />
                 <div className="card-actions justify-end">
-                    <button className="btn btn-primary">View Details</button>
+                    <Link to={`/toys/${_id}`}>
+                        <button className="btn btn-primary">View Details</button>
+                    </Link>
                 </div>
             </div>
         </div>

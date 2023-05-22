@@ -5,6 +5,7 @@ import Home from "../Pages/Home/Home/Home";
 import {
     createBrowserRouter,
 } from "react-router-dom";
+import ToyDetails from "../Pages/Home/ToysCategory/ToyDetails";
 
 const router = createBrowserRouter([
     {
@@ -19,6 +20,11 @@ const router = createBrowserRouter([
             {
                 path: '/blogs',
                 element: <Blogs></Blogs>
+            },
+            {
+                path: '/toys/:id',
+                element: <ToyDetails></ToyDetails>,
+                loader: ({ params }) => fetch(`http://localhost:5000/toys/${params.id}`)
             }
         ]
     }

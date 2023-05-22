@@ -6,6 +6,8 @@ import {
     createBrowserRouter,
 } from "react-router-dom";
 import ToyDetails from "../Pages/Home/ToysCategory/ToyDetails";
+import Login from "../Pages/Login/Login";
+import Register from "../Pages/Login/Register";
 
 const router = createBrowserRouter([
     {
@@ -25,6 +27,14 @@ const router = createBrowserRouter([
                 path: '/toys/:id',
                 element: <ToyDetails></ToyDetails>,
                 loader: ({ params }) => fetch(`http://localhost:5000/toys/${params.id}`)
+            },
+            {
+                path: '/login',
+                element: <Login></Login>
+            },
+            {
+                path: '/register',
+                element: <Register></Register>
             }
         ]
     }

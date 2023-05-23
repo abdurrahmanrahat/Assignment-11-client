@@ -47,6 +47,11 @@ const MyToys = () => {
         })
     }
 
+    // handleUpdateToy
+    const handleUpdateToy = id => {
+        console.log(id);
+    }
+
     return (
         <div>
             <h2 className="text-center my-10 text-4xl font-semibold">My Toys Products</h2>
@@ -71,6 +76,7 @@ const MyToys = () => {
                                 key={mytoy._id}
                                 mytoy={mytoy}
                                 handleRemoveToy={handleRemoveToy}
+                                handleUpdateToy={handleUpdateToy}
                             ></MyToysRow>)
                         }
                     </tbody>

@@ -13,19 +13,19 @@ const ToysCategory = () => {
 
     // load data
     useEffect(() => {
-        fetch('http://localhost:5000/skateboardToys')
+        fetch('https://assignment-11-server-six-lovat.vercel.app/skateboardToys')
             .then(res => res.json())
             .then(data => setSkateboardToys(data))
     }, [])
 
     useEffect(() => {
-        fetch('http://localhost:5000/golfsetToys')
+        fetch('https://assignment-11-server-six-lovat.vercel.app/golfsetToys')
             .then(res => res.json())
             .then(data => setGolfsetToys(data))
     }, [])
 
     useEffect(() => {
-        fetch('http://localhost:5000/plasticToys')
+        fetch('https://assignment-11-server-six-lovat.vercel.app/plasticToys')
             .then(res => res.json())
             .then(data => setPlasticToys(data))
     }, [])

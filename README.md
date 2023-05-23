@@ -1,4 +1,4 @@
-## website Live Line- _site live link_
+## website Live Line- _https://assignment-11-ph.web.app/_
 
 ## Here is a list of what is doing on this project
 * A home page with a navbar & a carousel banner as well as more section like gallery, Sport category.

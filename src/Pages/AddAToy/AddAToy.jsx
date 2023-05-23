@@ -24,7 +24,7 @@ const AddAToy = () => {
         console.log(newToy);
 
         // send data 
-        fetch('http://localhost:5000/addToys', {
+        fetch('https://assignment-11-server-six-lovat.vercel.app/addToys', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

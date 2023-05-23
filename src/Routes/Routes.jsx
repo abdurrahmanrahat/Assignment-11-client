@@ -32,7 +32,7 @@ const router = createBrowserRouter([
             {
                 path: '/toys/:id',
                 element: <PrivateRoute><ToyDetails></ToyDetails></PrivateRoute>,
-                loader: ({ params }) => fetch(`http://localhost:5000/toys/${params.id}`)
+                loader: ({ params }) => fetch(`https://assignment-11-server-six-lovat.vercel.app/toys/${params.id}`)
             },
             {
                 path: '/login',
@@ -49,12 +49,12 @@ const router = createBrowserRouter([
             {
                 path: '/alltoys',
                 element: <AllToys></AllToys>,
-                loader: () => fetch('http://localhost:5000/addToys')
+                loader: () => fetch('https://assignment-11-server-six-lovat.vercel.app/addToys')
             },
             {
                 path: '/alltoys/:id',
                 element: <PrivateRoute><SingleToyDe></SingleToyDe></PrivateRoute>,
-                loader: ({ params }) => fetch(`http://localhost:5000/addToys/${params.id}`)
+                loader: ({ params }) => fetch(`https://assignment-11-server-six-lovat.vercel.app/addToys/${params.id}`)
             },
             {
                 path: '/mytoys',
@@ -63,7 +63,7 @@ const router = createBrowserRouter([
             {
                 path: '/mytoys/:id',
                 element: <UpdateToy></UpdateToy>,
-                loader: ({ params }) => fetch(`http://localhost:5000/specificToys/${params.id}`)
+                loader: ({ params }) => fetch(`https://assignment-11-server-six-lovat.vercel.app/specificToys/${params.id}`)
             }
         ]
     }

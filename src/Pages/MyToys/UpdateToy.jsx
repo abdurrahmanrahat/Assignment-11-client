@@ -20,7 +20,7 @@ const UpdateToy = () => {
         }
 
         // update a toy
-        fetch(`http://localhost:5000/specificToys/${sinToy._id}`, {
+        fetch(`https://assignment-11-server-six-lovat.vercel.app/specificToys/${sinToy._id}`, {
             method: 'PATCH',
             headers: {
                 'content-type': 'application/json'

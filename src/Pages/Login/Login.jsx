@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import image from '../../assets/login-page.jpg';
 import googleImg from '../../assets/google-btn.png';
 import { useContext, useState } from 'react';
@@ -9,6 +9,12 @@ const Login = () => {
     const [success, setSuccess] = useState("");
 
     const { signIn, googleSignIn } = useContext(AuthContext);
+
+    // for location purpose in login page.
+    const navigate = useNavigate();
+    const location = useLocation();
+    console.log('login page location', location);
+    const from = location.state?.from?.pathname || '/';
 
     const handleLogin = event => {
         event.preventDefault()
@@ -27,6 +33,7 @@ const Login = () => {
                 console.log(loggedUser);
                 setSuccess("Successfully user Login.");
                 form.reset();
+                navigate(from, { replace: true });
             })
             .catch(error => {
                 console.log(error.message);
@@ -42,6 +49,7 @@ const Login = () => {
                 console.log(loggedInUser);
                 // setUser(loggedInUser);
                 setSuccess("User successfully login!!");
+                navigate(from, { replace: true });
             })
             .catch(error => {
                 console.log(error);

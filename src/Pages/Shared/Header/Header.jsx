@@ -43,7 +43,7 @@ const Header = () => {
             </div>
             <div className="navbar-end">
                 {
-                    user && <img style={{ width: '40px', height: '40px' }} className='rounded-2xl me-4' src={user?.photoURL} alt="" />
+                    user && <img className='rounded-2xl me-4 w-10 h-10' src={user?.photoURL} alt="" />
                 }
                 {user ?
                     <button onClick={handleLogout} className="btn btn-primary">LogOut</button>

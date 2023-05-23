@@ -1,10 +1,18 @@
 import { Link } from "react-router-dom";
 import img from '../../assets/login-page.jpg';
+import { useContext, useState } from "react";
+import { AuthContext } from "../../Providers/AuthProvider";
 
 const Register = () => {
+    const [error, setError] = useState("");
+    const [success, setSuccess] = useState("");
+
+    const { createUser } = useContext(AuthContext);
 
     const handleRegister = event => {
         event.preventDefault()
+        setSuccess('');
+        setError('');
         const form = event.target;
 
         const name = form.name.value;
@@ -13,15 +21,23 @@ const Register = () => {
         const password = form.password.value;
         console.log(name, photo, email, password);
 
+        if (password.length < 6) {
+            setError("Password should be six characters or numbers.");
+            return;
+        }
+
         // create user
-        // createUser(email, password)
-        //     .then(result => {
-        //         const createdUser = result.user;
-        //         console.log(createdUser);
-        //     })
-        //     .catch(error => {
-        //         console.log(error.message);
-        //     })
+        createUser(email, password)
+            .then(result => {
+                const createdUser = result.user;
+                console.log(createdUser);
+                setSuccess("Successfully user Register.");
+                form.reset();
+            })
+            .catch(error => {
+                console.log(error.message);
+                setError(error.message);
+            })
     }
 
     return (
@@ -68,6 +84,8 @@ const Register = () => {
                         </form>
                         <p className='text-sm text-center my-2'>Already Have An Account? Please <Link className='text-orange-600 font-semibold' to="/login">Login</Link></p>
                     </div>
+                    <p className="mx-auto text-purple-700-600 mb-0">{success}</p>
+                    <p className="mx-auto text-red-600 mb-6">{error}</p>
                 </div>
             </div>
         </div>

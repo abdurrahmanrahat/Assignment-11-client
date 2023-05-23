@@ -1,7 +1,16 @@
 import { Link } from "react-router-dom";
 import Logo from '../../../assets/logo.jpg';
+import { useContext } from "react";
+import { AuthContext } from "../../../Providers/AuthProvider";
 
 const Header = () => {
+
+    const { user, logOut } = useContext(AuthContext);
+
+    // User logout
+    const handleLogout = () => {
+        logOut();
+    }
 
     const nabItems = <>
         <li><Link to="/">Home</Link></li>
@@ -33,9 +42,16 @@ const Header = () => {
                 </ul>
             </div>
             <div className="navbar-end">
-                <Link to="/login">
-                    <button className="btn btn-primary">Login</button>
-                </Link>
+                {
+                    user && <img style={{ width: '40px', height: '40px' }} className='rounded-2xl me-4' src={user?.photoURL} alt="" />
+                }
+                {user ?
+                    <button onClick={handleLogout} className="btn btn-primary">LogOut</button>
+                    :
+                    <Link to="/login">
+                        <button className="btn btn-primary">Login</button>
+                    </Link>
+                }
             </div>
         </div>
     );

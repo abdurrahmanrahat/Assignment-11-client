@@ -1,5 +1,6 @@
 import { useContext } from "react";
 import { AuthContext } from "../../Providers/AuthProvider";
+import Swal from 'sweetalert2'
 
 const AddAToy = () => {
 
@@ -17,9 +18,32 @@ const AddAToy = () => {
         const toyPrice = form.toyPrice.value;
         const toyRatting = form.toyRatting.value;
         const toyQuantity = form.toyQuantity.value;
+        const toyDes = form.toyDes.value;
 
-        const newToy = { sellerName, email, toyName, toyPhoto, toyCategory, toyPrice, toyRatting, toyQuantity }
+        const newToy = { sellerName, email, toyName, toyPhoto, toyCategory, toyPrice, toyRatting, toyQuantity, toyDes }
         console.log(newToy);
+
+        // send data 
+        fetch('http://localhost:5000/addToys', {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(newToy)
+        })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data);
+                if (data.insertedId) {
+                    Swal.fire({
+                        title: 'Success!',
+                        text: 'Toy added successfully',
+                        icon: 'success',
+                        confirmButtonText: 'Cool'
+                    })
+
+                }
+            })
     }
 
     return (
@@ -82,6 +106,13 @@ const AddAToy = () => {
                             <span className="label-text">Available  Quantity</span>
                         </label>
                         <input type="text" name="toyQuantity" placeholder="Toy quantity" className="input input-bordered" required />
+                    </div>
+
+                    <div className="form-control w-full">
+                        <label className="label">
+                            <span className="label-text">Toy Description</span>
+                        </label>
+                        <input type="text" name="toyDes" placeholder="Toy description" className="input input-bordered" required />
                     </div>
 
                 </div>

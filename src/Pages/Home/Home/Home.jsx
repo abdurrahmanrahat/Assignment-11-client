@@ -1,3 +1,5 @@
+import Discount from "../Discount/Discount";
+import Preview from "../Preview/Preview";
 import ToysCategory from "../ToysCategory/ToysCategory";
 import CarouselBanner from "./CarouselBanner";
 import GallerySec from "./GallerySec";
@@ -13,6 +15,12 @@ const Home = () => {
 
             {/* Shop by Category Section */}
             <ToysCategory></ToysCategory>
+
+            {/* Discount Section */}
+            <Discount></Discount>
+
+            {/* Preview Section */}
+            <Preview></Preview>
         </div>
     );
 };

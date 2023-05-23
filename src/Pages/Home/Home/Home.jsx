@@ -1,3 +1,4 @@
+import AnimationOS from "../AnimationOS/AnimationOS";
 import Discount from "../Discount/Discount";
 import Preview from "../Preview/Preview";
 import ToysCategory from "../ToysCategory/ToysCategory";
@@ -21,6 +22,9 @@ const Home = () => {
 
             {/* Preview Section */}
             <Preview></Preview>
+
+            {/* AOS React Animation */}
+            <AnimationOS></AnimationOS>
         </div>
     );
 };

@@ -3,12 +3,13 @@ import ToysRow from "./ToysRow";
 
 const AllToys = () => {
     const allToys = useLoaderData();
-    console.log(allToys);
+    // console.log(allToys);
+
     return (
         <div>
             <h2 className="text-center my-10 text-4xl font-semibold">All Toys List</h2>
 
-            <div className="overflow-x-auto w-full">
+            <div className="overflow-x-auto w-full mb-10">
                 <table className="table w-full">
                     {/* head */}
                     <thead>

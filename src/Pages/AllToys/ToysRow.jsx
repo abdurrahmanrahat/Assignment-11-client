@@ -1,6 +1,7 @@
+import { Link } from "react-router-dom";
 
 const ToysRow = ({ toy }) => {
-    const { sellerName, toyName, toyCategory, toyPrice, toyQuantity } = toy;
+    const { _id, sellerName, toyName, toyCategory, toyPrice, toyQuantity } = toy;
     return (
         < tr >
             <td>
@@ -19,7 +20,9 @@ const ToysRow = ({ toy }) => {
                 {toyQuantity}
             </td>
             <th>
-                <button className="btn btn-ghost btn-xs">View Details</button>
+                <Link to={`/alltoys/${_id}`}>
+                    <button className="btn btn-ghost btn-xs">View Details</button>
+                </Link>
             </th>
         </tr >
     );
